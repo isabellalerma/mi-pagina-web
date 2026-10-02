@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Esthetic - Cuidado Personal, Belleza y Bienestar</title>
+    <style>
+        /* Paleta de colores: Blanco, Dorado, Rosado pastel */
+        :root {
+            --color-blanco: #ffffff;
+            --color-dorado: #c5a059;
+            --color-dorado-light: #f4efe2;
+            --color-rosado: #fbcbc9;
+            --color-rosado-pastel: #fff0f1;
+            --color-texto: #333333;
+            --color-texto-muted: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--color-blanco);
+            color: var(--color-texto);
+            line-height: 1.6;
+        }
+
+        /* Barra de Navegación */
+        header {
+            background-color: var(--color-blanco);
+            border-bottom: 2px solid var(--color-dorado-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 5%;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .brand-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--color-dorado);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #f5f5f5;
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            padding-left: 5px;
+            font-size: 14px;
+        }
+
+        nav {
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            nav {
+                width: auto;
+                margin-top: 0;
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-texto);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-dorado);
+        }
+
+        /* Hero / Sección Inicio (Basado en el Boceto) */
+        .hero {
+            background: linear-gradient(135deg, var(--color-rosado-pastel) 0%, #fffbfb 100%);
+            padding: 60px 5%;
+            text-align: center;
+            border-bottom: 1px solid var(--color-rosado);
+        }
+
+        .logo-circle {
+            width: 150px;
+            height: 150px;
+            border: 4px double var(--color-dorado);
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-blanco);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo-circle span {
+            font-weight: bold;
+            color: var(--color-dorado);
+            font-size: 22px;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            color: var(--color-dorado);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .hero p.slogan {
+            font-size: 18px;
+            font-style: italic;
+            color: var(--color-texto-muted);
+            margin-bottom: 25px;
+        }
+
+        .hero-layout {
+            max-width: 1000px;
+            margin: 30px auto 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .hero-layout {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+
+        .welcome-box {
+            background: var(--color-blanco);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: left;
+            border-left: 5px solid var(--color-rosado);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.02);
+        }
+
+        .side-image-placeholder {
+            background: #eaeaea;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            color: #777;
+        }
+
+        /* Estilos de Contenedores */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 5%;
+        }
+
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .section-title {
+            font-size: 26px;
+            color: var(--color-dorado);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--color-dorado);
+        }
+
+        /* Grids y Tarjetas */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: var(--color-blanco);
+            border: 1px solid var(--color-dorado-light);
+            border-radius: 6px;
+            padding: 25px;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--color-dorado);
+            margin-bottom: 12px;
+        }
+
+        /* Galería Multimedia */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            background: #f9f9f9;
+            border: 1px solid #eee;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            border-radius: 4px;
+        }
+
+        /* Sección Productos */
+        .products-section {
+            background-color: var(--color-rosado-pastel);
+            padding: 40px 5%;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .product-card {
+            background: var(--color-blanco);
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+            border: 1px solid var(--color-rosado);
+        }
+
+        .product-img {
+            background: #f0f0f0;
+            height: 130px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+
+        .btn {
+            background-color: var(--color-dorado);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Opiniones */
+        .review {
+            background: #fffbfb;
+            border-left: 3px solid var(--color-dorado);
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .review-stars {
+            color: #f39c12;
+        }
+
+        /* Contacto y Mapa Geográfico */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .contact-layout {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .map-placeholder {
+            background: #e5e3df;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            padding: 20px;
+        }
+
+        /* Reservas */
+        .booking-box {
+            background: #fff;
+            border: 1px solid var(--color-dorado);
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        .booking-slots {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .slot {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Footer / Sección de Agradecimiento Escolar */
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 40px 5%;
+            margin-top: 50px;
+        }
+
+        footer h2 {
+            color: var(--color-dorado);
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .credits {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #777;
+            border-top: 1px solid #333;
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#inicio" class="brand-logo">Luxury Esthetic</a>
+            
+            <div class="search-box">
+                <span>🔍</span>
+                <input type="text" placeholder="Buscador...">
+            </div>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#inicio">🏠 Inicio</a></li>
+                    <li><a href="#nosotros">👥 Nosotros</a></li>
+                    <li><a href="#servicios">✨ Servicios</a></li>
+                    <li><a href="#galeria">📷 Galería</a></li>
+                    <li><a href="#promociones">🏷️ Promociones</a></li>
+                    <li><a href="#productos">🛍️ Tienda</a></li>
+                    <li><a href="#reservas">📅 Reservas</a></li>
+                    <li><a href="#opiniones">💬 Opiniones</a></li>
+                    <li><a href="#contacto">📞 Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="inicio" class="hero">
+        <div class="logo-circle">
+            <span>LOGO</span>
+        </div>
+        <h1>LUXURY ESTHETIC</h1>
+        <p class="slogan">"Resalta tu mejor versión"</p>
+
+        <div class="hero-layout">
+            <div class="welcome-box">
+                <h2 style="color: var(--color-dorado); margin-bottom: 15px;">BIENVENIDOS</h2>
+                <p>Nuestra página web se centra en el cuidado personal, belleza y bienestar, ofreciendo información sobre tratamientos estéticos, cuidado de la piel y espacios pensados para resaltar tu belleza y la confianza de cada persona.</p>
+            </div>
+            <div class="side-image-placeholder">
+                [ Imagen Principal ]
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <section id="nosotros">
+            <h2 class="section-title">Nosotros</h2>
+            <div style="margin-top: 15px;">
+                <h3>¿Quiénes Somos?</h3>
+                <p>Somos un centro de estética dedicado a la excelencia en el cuidado de la piel y el bienestar integral.</p>
+                <h3 style="margin-top: 20px;">Misión</h3>
+                <p>Proporcionar tratamientos estéticos de alta calidad que potencien la belleza natural y la autoestima de nuestros clientes.</p>
+                <h3 style="margin-top: 20px;">Visión</h3>
+                <p>Convertirnos en el referente líder de estética y bienestar, reconocidos por nuestra elegancia e innovación.</p>
+            </div>
+        </section>
+
+        <section id="servicios">
+            <h2 class="section-title">Servicios</h2>
+            <p><strong>Objetivo General:</strong> Brindar servicios de estética y cuidado personal para resaltar la belleza y el bienestar de las personas, mediante tratamientos de calidad, atención profesional y un espacio cómodo y confiable.</p>
+            
+            <div class="grid-3">
+                <div class="card">
+                    <h3>✨ Tratamientos Estéticos</h3>
+                    <p>Procedimientos avanzados diseñados para rejuvenecer y revitalizar tu rostro y cuerpo.</p>
+                </div>
+                <div class="card">
+                    <h3>🧴 Cuidado de la Piel</h3>
+                    <p>Limpiezas profundas y tratamientos especializados para un cutis radiante.</p>
+                </div>
+                <div class="card">
+                    <h3>🌿 Espacios Cómodos</h3>
+                    <p>Zonas pensadas armónicamente para brindarte relajación absoluta y confianza.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeria">
+            <h2 class="section-title">Galería</h2>
+            <p style="margin-bottom: 20px;">Fotografías de trabajos realizados y recursos multimedia:</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">[ Fotos Originales ]</div>
+                <div class="gallery-item">[ Videos ]</div>
+                <div class="gallery-item">[ Instalaciones ]</div>
+            </div>
+        </section>
+
+        <section id="promociones">
+            <h2 class="section-title">Promociones</h2>
+            <div class="grid-3">
+                <div class="card" style="border-top: 4px solid var(--color-rosado);">
+                    <h3 style="color: #e06666;">Descuentos Especiales</h3>
+                    <p>Aprovecha rebajas exclusivas en tratamientos faciales seleccionados este mes.</p>
+                </div>
+                <div class="card" style="border-top: 4px solid var(--color-rosado);">
+                    <h3 style="color: #e06666;">Combos Imperdibles</h3>
+                    <p>Paquetes completos de cuidado de la piel + masaje de relajación profunda.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="productos" class="products-section">
+            <h2 class="section-title">Productos a la Venta</h2>
+            <div class="grid-3">
+                <div class="product-card">
+                    <div class="product-img">[ Imagen ]</div>
+                    <h4>Crema Hidratante</h4>
+                    <button class="btn">🛒 Añadir al Carrito</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">[ Imagen ]</div>
+                    <h4>Sérum Renovador</h4>
+                    <button class="btn">🛒 Añadir al Carrito</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-img" style="border: 1px dashed var(--color-dorado);">[ Imagen Inferior Izquierda ]</div>
+                    <h4>Protector Solar FPS 50</h4>
+                    <button class="btn">🛒 Añadir al Carrito</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="reservas">
+            <h2 class="section-title">Reservas</h2>
+            <div class="booking-box">
+                <h3>Lugares disponibles para citas:</h3>
+                <div class="booking-slots">
+                    <div class="slot">📅 09:00 AM</div>
+                    <div class="slot">📅 11:00 AM</div>
+                    <div class="slot">📅 03:00 PM</div>
+                    <div class="slot">📅 05:00 PM</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="opiniones">
+            <h2 class="section-title">Opiniones</h2>
+            <div class="review">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <p><em>"Experiencia y calificación excelente de los clientes. El servicio es sumamente profesional."</em></p>
+            </div>
+        </section>
+
+        <section id="contacto">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-layout">
+                <div>
+                    <p style="margin-bottom: 8px;"><strong>📞 Número de Contacto:</strong> +57 300 123 4567</p>
+                    <p style="margin-bottom: 8px;"><strong>📍 Ubicación:</strong> Calle de la Estética #10-20</p>
+                    <p><strong>🌐 Redes Sociales:</strong> @LuxuryEsthetic</p>
+                </div>
+                <div class="map-placeholder">
+                    <strong>📍 Ubicación Geográfica (Mapa)</strong>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <h2>AGRADECIMIENTO</h2>
+        <p>Gracias por visitar nuestra página y confiar en nosotros para resaltar tu mejor versión.</p>
+        
+        <div class="credits">
+            <p><strong>Asignatura:</strong> Tecnología e Informática | <strong>Grado:</strong> Undécimo (11°)</p>
+            <p><strong>Integrantes:</strong> Isabella Lerma Pabón & Pergie Tamara Salazar</p>
+            <p>Fecha de entrega: 2/06/2026</p>
+        </div>
+    </footer>
+</body>
+</html>
